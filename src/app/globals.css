@@ -2,26 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  @apply font-questrial;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply text-slate-600;
+}
+
+.error {
+  @apply text-red-500 text-sm;
+}
+
+input,
+select,
+textarea {
+  @apply flex h-9 w-full !rounded-md border !border-gray-300 bg-white px-3 py-1 text-sm !shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:!ring-green-500 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+textarea {
+  @apply h-20;
+}
+
+input[type="checkbox"] {
+  @apply !w-5 !h-5;
+}
+input[type="checkbox"]:checked {
+  @apply !shadow-blue-500/30 !shadow-md;
+}
+
+button.btn {
+  @apply px-5 py-2 mt-4 !bg-primary text-white rounded-md hover:!bg-primary/80 disabled:!opacity-40;
 }
